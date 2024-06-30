@@ -3,24 +3,67 @@
 // abstract classes can be extended using extends keyword whereas interface implemented using the implements keyword.
 // abstract classes can have constructor but interface cannot have constructor.
 
-interface shape{
-    double pi=3.14;
-    double getsquare(double r); // interface members are always static , final
+// interface shape{
+//     double pi=3.14;
+//     double getsquare(double r); // interface members are always static , final
+// }
+// class circle implements shape{
+//     public double getsquare(double r){
+//         return pi*r*r;
+//     }
+//     void fun(){
+//         System.out.println("hey i am implemented the interface named shape");
+// }
+// }
+// public class Abstract_class_and_interface {
+
+//     public static void main(String[] args){
+//         circle c = new circle();
+//         System.out.println(c.getsquare(5));
+//         c.fun();
+
+//     }
+// }
+
+
+// MULTIPLE inheritance
+
+interface A{
+    int x=10;
+    void fun();
 }
-class circle implements shape{
-    public double getsquare(double r){
-        return pi*r*r;
+
+interface B{
+    int y=20;
+    void fun();
+}
+
+class C implements A,B{
+    public void fun() {
+        System.out.println("hey i am function in c");
+        System.out.println(A.x);
+        System.out.println(B.y);
+
+
+
     }
-    void fun(){
-        System.out.println("hey i am implemented the interface named shape");
+}
+interface O extends A,B{
+    void fun();
+}
+
+class D implements O{
+public void fun(){
+    System.out.println("hey i am function in d");
 }
 }
 public class Abstract_class_and_interface {
-
     public static void main(String[] args){
-        circle c = new circle();
-        System.out.println(c.getsquare(5));
-        c.fun();
+        C obj=new C();
+        D obj1 = new D();
+        obj1.fun();
+        obj.fun();
 
-    }
+
+}
 }
